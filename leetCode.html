@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // | 相同位有一个为1 就为1
+    // & 相同位都为1 就为1
+    // ^ 相同位两个值相反，就为1
+  </script>
+
+  <!-- <script>
+    // twoSum
+    var twoSum = function (nums, target) {
+      const len = nums.length;
+      const dataMap = new Map();
+      let arr = [];
+      console.log('arr: ', arr);
+      dataMap.set(nums[0], 0);
+      for (let i = 1; i < len; i++) {
+        const other = target - nums[i];
+        console.log('other: ', other);
+        if (dataMap.get(other) !== undefined) {
+          console.log('dataMap.get(other): ', dataMap.get(other));
+          arr = [dataMap.get(other), i];
+          console.log('arr: ', arr);
+          return [dataMap.get(other), i];
+        }
+        console.log('arr: ', arr);
+        dataMap.set(nums[i], i);
+      }
+      console.log('arr: ', arr);
+      return arr;
+    };
+    let res = twoSum([3, 3], 6)
+    console.log('res: ', res);
+  </script> -->
+  <script>
+    // var reverse = function (x) {
+    //   const max = Math.pow(2, 31) - 1;
+    //   const min = Math.pow(-2, 31);
+    //   if (x < min || x > max || x == 0) {
+    //     return 0;
+    //   }
+    //   // true 负数 false 正数
+    //   // let flag = (x + "").startsWith("-");
+    //   // 正数返回1 负数返回-1
+    //   let flag = Math.sign(x) < 0;
+    //   let str = Math.abs(x) + "";
+    //   str = str.replace(/0+&/g, "");
+    //   const reverseStr = str.split("").reverse().join("");
+    //   const res = flag ? 0 - reverseStr : reverseStr - 0;
+    //   if (res < min || res > max) {
+    //     return 0;
+    //   }
+    //   return res;
+    // };
+    var reverse = function (x) {
+      let res = 0;
+      while (x) {
+        res = res * 10 + x % 10;
+        // 按位或 变为整数
+        x = x / 10 | 0;
+      }
+      // res 按位或 转为二进制 ，与res比较时如果相等，没有益处
+      return (res | 0) === res ? res : 0;
+    };
+    console.log('reverse(123): ', reverse(123));
+    console.log('reverse(120): ', reverse(120));
+    console.log('reverse(-123): ', reverse(-123));
+    console.log('reverse(901000): ', reverse(901000));
+    console.log('reverse(1534236469): ', reverse(1534236469));
+  </script>
+</body>
+
+</html>
