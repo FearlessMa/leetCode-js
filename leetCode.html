@@ -41,7 +41,8 @@
     let res = twoSum([3, 3], 6)
     console.log('res: ', res);
   </script> -->
-  <script>
+  <!-- <script>
+    // 整数翻转
     // var reverse = function (x) {
     //   const max = Math.pow(2, 31) - 1;
     //   const min = Math.pow(-2, 31);
@@ -76,6 +77,49 @@
     console.log('reverse(-123): ', reverse(-123));
     console.log('reverse(901000): ', reverse(901000));
     console.log('reverse(1534236469): ', reverse(1534236469));
+  </script> -->
+
+  <script>
+    // 回文数字
+    // var isPalindrome = function (x) {
+    //   // 0
+    //   if (x >= 0 && x < 10) return true;
+    //   // 负数
+    //   if (Math.sign(x) < 0) return false;
+    //   const numArr = (x + "").split("");
+    //   const len = numArr.length;
+    //   // 比较数组两头数据 left ，right  
+    //   // 值相等 且 right - left == 1 || right == left 是回文数字
+    //   for (let i = 0; i < len; i++) {
+    //     const left = i;
+    //     const right = len - 1 - i;
+    //     if (numArr[left] !== numArr[right]) {
+    //       return false;
+    //     }
+    //     if (right - left == 1 || right == left) {
+    //       return true;
+    //     }
+    //   }
+    // };
+
+    var isPalindrome = function (x) {
+      // 0 -9
+      if (x >= 0 && x < 10) return true;
+      // 负数
+      if (Math.sign(x) < 0) return false;
+      if (!(x % 10)) return false;
+      let res = 0;
+      let x2 = x;
+      while (x2) {
+        res = res * 10 + (x2 % 10);
+        x2 = (x2 / 10) | 0;
+      }
+      return res === x;
+    };
+    console.log('isPalindrome(123): ', isPalindrome(123));
+    console.log('isPalindrome(121): ', isPalindrome(121));
+    console.log('isPalindrome(10): ', isPalindrome(10));
+    console.log('isPalindrome(9): ', isPalindrome(9));
   </script>
 </body>
 
