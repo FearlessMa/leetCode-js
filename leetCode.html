@@ -79,7 +79,7 @@
     console.log('reverse(1534236469): ', reverse(1534236469));
   </script> -->
 
-  <script>
+  <!-- <script>
     // 回文数字
     // var isPalindrome = function (x) {
     //   // 0
@@ -120,6 +120,47 @@
     console.log('isPalindrome(121): ', isPalindrome(121));
     console.log('isPalindrome(10): ', isPalindrome(10));
     console.log('isPalindrome(9): ', isPalindrome(9));
+  </script> -->
+
+  <script>
+    // 最长公共前缀
+    var longestCommonPrefix = function (strs) {
+      if (!strs || !strs.length) {
+        return "";
+      }
+      if (strs.length === 1) {
+        return strs[0];
+      }
+      // let str = "";
+      let sign = "";
+      let word = strs[0];
+      let wordList = strs.slice(1);
+      for (let i = 0; i < word.length; i++) {
+        let char = word[i];
+        let flag = true;
+        wordList.forEach(item => {
+          // 不相同
+          if (item[i] != char) {
+            flag = false;
+          }
+        });
+        // 相同
+        if (flag) {
+          sign += char;
+        } else {
+          return sign;
+        }
+        //  else {
+        //   // 不同
+        //   if (sign.length > str.length) {
+        //     str = sign;
+        //   }
+        //   sign = "";
+        //   flag = true;
+        // }
+      }
+      return sign;
+    };
   </script>
 </body>
 
