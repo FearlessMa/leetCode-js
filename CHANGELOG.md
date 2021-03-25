@@ -1,8 +1,9 @@
-# 1.0.0 (2021-03-24)
+# 1.0.0 (2021-03-25)
 
 
 ### Features
 
+* 62 不同路径 ，动态规划 ([b358602](https://github.com/FearlessMa/leetCode-js/commit/b358602699a476d0f35b7024e9d15bd22fec938a))
 * 最长公共前缀 ([3f008e1](https://github.com/FearlessMa/leetCode-js/commit/3f008e1e6e33f71cf12ce90e0749ce8a2c2878bd))
 * 删除有序数列的重复项:双指针 ([ac0d9b0](https://github.com/FearlessMa/leetCode-js/commit/ac0d9b09fb1d3b944c61f9830cbcb04ce8497fbd))
 * 动态规划 ([2c2fbd1](https://github.com/FearlessMa/leetCode-js/commit/2c2fbd1ed98f275c38cdbd1a9af72833b40d4b3d))

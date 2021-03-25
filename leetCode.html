@@ -495,13 +495,13 @@
     console.log('numSquares(8609): ', numSquares(8609));
   </script> -->
 
-  <script>
+  <!-- <script>
     //  62 不同路径 ，动态规划
     //  暴力递归解决 自顶而下
     //  动态规划思路   自底而上 寻找规律 缓存结果 
     //  arr[i][j] = arr[i - 1][j] + arr[i][j - 1];
 
-    
+
     // var uniquePaths = function (m, n) {
     //   let arr = new Array(m + 1).fill(0);
     //   arr.forEach((item, i) => {
@@ -551,8 +551,74 @@
     // console.log('uniquePaths(3,3): ', uniquePaths(3, 3));
     // console.log('uniquePaths(3,7): ', uniquePaths(3, 7));
     console.log('uniquePaths(2,1): ', uniquePaths(2, 1));
-  </script>
+  </script> -->
 
 </body>
+<!-- <script>
+  //  aaabbcccdddddaaaaaddddeeeecccccc 找出连续重复最多的字符
+  function repeatMax(str) {
+    const len = str.length;
+    console.log('len: ', len);
+    let i = 0;
+    let j = 1;
+    let repeat = 0;
+    while (i < len - 1) {
+      let char = str[i]
+      let charAtj = str[j]
+      if (charAtj === char) {
+        j++
+      } else {
+        repeat = j - i;
+        console.log('repeat: start:' + i + ',end:' + j, str.slice(i, j), repeat);
+        i = j++;
+      }
+    }
+    return repeat;
+  }
+  const str1 = 'aaabbcccdddddaaaaaddddeeeeccccccc'
+  console.log('repeatMax(str1): ', repeatMax(str1));
+</script> -->
+<script>
+  // 1[2[1[a][3[bc]]]] 转化 abcbcbcabcbcbc
+  // 规则  重复1次(重复2次 (a 拼接( 重复3次bc )))
+  function parseTemplate(templateStr) {
+    const len = templateStr.length;
+    // 存放重复倍数
+    const stack1 = [];
+    // 存放字符串
+    const stack2 = [];
+    let idx = 0;
+    // 匹配 1[
+    let regTagLeft = /^(\d*)\[/;
+    let regTagRight = /^(\d*\w*)\]/;
+    while (idx < len - 1) {
+      let str = templateStr.slice(idx);
+      console.log('str: ', str);
+      // 判断[之前的字符 进栈
+      if (regTagLeft.test(str)) {
+        let res = str.match(regTagLeft)
+        let num = +res[1] == 0 ? 1 : +res[1];
+        stack1.push(num)
+        stack2.push('')
+        idx += res[0].length;
+      } else if (regTagRight.test(str)) {
+        // 判断]之前的字符 出栈并按照规则累加
+        let res = str.match(regTagRight)
+        let num = stack1.pop();
+        let str1 = stack2.pop();
+        // 匹配字符以当前栈顶字符相加 在重复次数
+        stack2[stack2.length - 1] += (str1+res[1]).repeat(num);
+        idx += res[0].length;
+      }
+    }
+    console.log('stack1: ', stack1);
+    console.log('stack2: ', stack2);
+    return stack2[0].repeat(stack1[0]);
+  }
+  // parseTemplate("1[2[1[a][3[bc]]]]")
+  console.log('parseTemplate("3[2[a]2[b]]"): ', parseTemplate("3[2[a]2[b]]"));
+  console.log('parseTemplate("1[2[1[a][3[6bc]]]]"): ', parseTemplate("1[2[1[a][3[6bc]]]]"));
+
+</script>
 
 </html>
