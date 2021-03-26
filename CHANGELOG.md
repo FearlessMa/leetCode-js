@@ -1,4 +1,4 @@
-# 1.0.0 (2021-03-25)
+# 1.0.0 (2021-03-26)
 
 
 ### Features
@@ -9,6 +9,7 @@
 * 动态规划 ([2c2fbd1](https://github.com/FearlessMa/leetCode-js/commit/2c2fbd1ed98f275c38cdbd1a9af72833b40d4b3d))
 * 动态规划问题 ([eeb867d](https://github.com/FearlessMa/leetCode-js/commit/eeb867d55a4bbe0c3beb80705b64734ae69fc09a))
 * 合并有序链表 ([6109209](https://github.com/FearlessMa/leetCode-js/commit/61092095434e071eb951289968cf73f4dd3cbc7a))
+* 指针与栈问题 ([cfb25c4](https://github.com/FearlessMa/leetCode-js/commit/cfb25c424edfecbf2709f7fa3a0e171f3be7e138))
 * 有效括号 ([8d7049e](https://github.com/FearlessMa/leetCode-js/commit/8d7049ea6bffda13120500458bf1be05ed9e83b0))
 
 

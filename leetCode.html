@@ -553,6 +553,31 @@
     console.log('uniquePaths(2,1): ', uniquePaths(2, 1));
   </script> -->
 
+  <script>
+    //  27 移除元素
+    var removeElement = function (nums, val) {
+      let idx = 0;
+      // if (nums[idx] == val) {
+      //   idx++;
+      // }
+      nums.forEach((item, i) => {
+        if (item == val && i == idx) {
+          idx++;
+        } else if (item == val && idx < i) {
+          nums[idx] = nums[idx] ^ nums[i];
+          nums[i] = nums[idx] ^ nums[i];
+          nums[idx] = nums[idx] ^ nums[i];
+          idx++;
+        }
+      });
+
+      while (idx-- > 0) {
+        nums.shift()
+      }
+      return nums.length
+    };
+    removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2)
+  </script>
 </body>
 <!-- <script>
   //  aaabbcccdddddaaaaaddddeeeecccccc 找出连续重复最多的字符
@@ -578,7 +603,7 @@
   const str1 = 'aaabbcccdddddaaaaaddddeeeeccccccc'
   console.log('repeatMax(str1): ', repeatMax(str1));
 </script> -->
-<script>
+<!-- <script>
   // 1[2[1[a][3[bc]]]] 转化 abcbcbcabcbcbc
   // 规则  重复1次(重复2次 (a 拼接( 重复3次bc )))
   function parseTemplate(templateStr) {
@@ -619,6 +644,6 @@
   console.log('parseTemplate("3[2[a]2[b]]"): ', parseTemplate("3[2[a]2[b]]"));
   console.log('parseTemplate("1[2[1[a][3[6bc]]]]"): ', parseTemplate("1[2[1[a][3[6bc]]]]"));
 
-</script>
+</script> -->
 
 </html>
