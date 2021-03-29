@@ -553,7 +553,7 @@
     console.log('uniquePaths(2,1): ', uniquePaths(2, 1));
   </script> -->
 
-  <script>
+  <!-- <script>
     //  27 移除元素
     var removeElement = function (nums, val) {
       let idx = 0;
@@ -577,7 +577,38 @@
       return nums.length
     };
     removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2)
+  </script> -->
+
+  <script>
+    // 28 
+    var strStr = function (haystack, needle) {
+      if (haystack == needle) return 0;
+      if (needle === "") return 0;
+      const len = haystack.length;
+      let idx = 0;
+      let start = needle[idx];
+      let startIdx = -1;
+      for (let i = 0; i < len; i++) {
+        // 匹配开头
+        if (haystack[i] == start) {
+          // 全部匹配
+          if (idx == needle.length - 1) {
+            return i - idx;
+          }
+          start = needle[++idx];
+        } else { //不匹配 复原
+          i = i - idx ;
+          idx = 0;
+          start = needle[idx];
+        }
+      }
+      return startIdx;
+    };
+
+    // console.log('strStr("mississippi", "issi"): ', strStr("mississippi", "issi"));
+    console.log('strStr("mississippi","issip"): ', strStr("mississippi","issip"));
   </script>
+
 </body>
 <!-- <script>
   //  aaabbcccdddddaaaaaddddeeeecccccc 找出连续重复最多的字符
